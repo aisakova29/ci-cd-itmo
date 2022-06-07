@@ -28,7 +28,7 @@ pipeline{
                 stage('Build') {
 
 			steps {
-				sh 'docker build -t aisakova/webapp_test:latest .'
+				sh 'docker build -t aisakova29/itmo-web:latest .'
 			}
 		}
 
