@@ -11,7 +11,7 @@ pipeline{
             stage('gitclone') {
 
 		        steps {
-				git 'https://github.com/aisakova29/ci-cd-itmo'
+				git 'https://github.com/aisakova29/ci-cd-itmo.git'
 			}
 		}
 
