@@ -30,22 +30,19 @@ pipeline{
 
 			steps {
 				sh 'docker build -t aisakova29/itmo-web:latest .'
-			}
-		}
-
-		stage('Login') {
-
-			steps {
 				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-			}
-		}
-
-		stage('Push') {
-
-			steps {
 				sh 'docker push aisakova29/itmo-web:latest'
 			}
 		}
+
+		
+                stage('ansible') {
+                        steps {
+                                sh 'ansible all -i hosts -m ping'
+                                sh 'ansible-playbook -i hosts playbook1.yml'
+                                sh 'ansible-playbook -i hosts playbook2.yml'
+			}
+                 }
 	}
 
 }
