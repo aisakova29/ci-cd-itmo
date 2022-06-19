@@ -6,9 +6,9 @@
       file:
         path: /home/ubuntu/nginx-dockerfile
         state: directory
-    - name: copy dockerfile
+    - name: copy dockerfile-nginx
       copy:
-        src: ./dockerfile
+        src: ./dockerfile-nginx
         dest: /home/ubuntu/nginx-dockerfile
     - name: copy nginx.conf
       copy:
