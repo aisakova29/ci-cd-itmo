@@ -9,7 +9,7 @@
     - name: copy dockerfile-nginx
       copy:
         src: ./dockerfile-nginx
-        dest: /home/ubuntu/nginx-dockerfile
+        dest: /home/ubuntu/nginx-dockerfile/dockerfile
     - name: copy nginx.conf
       copy:
         src: ./nginx.conf
