@@ -1,4 +1,3 @@
-
 [prod_servers]
 ec2-1 ansible_host=3.126.250.108 ansible_user=ubuntu ansible_ssh_private_key_file=/etc/ansible/last-key-frankfurt.pem
 ec2-2 ansible_host=3.72.110.139 ansible_user=ubuntu ansible_ssh_private_key_file=/etc/ansible/last-key-frankfurt.pem
