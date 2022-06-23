@@ -34,7 +34,7 @@ pipeline{
 				sh 'docker build -t aisakova29/itmo-web:$TAG .'
                                 sh 'docker tag itmo-web:1.0.$TAG aisakova29/itmo-web:$TAG'
 				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-				sh 'docker push aisakova29/itmo-web:$TAG
+				sh 'docker push aisakova29/itmo-web:$TAG'
 			}
 		}
 
