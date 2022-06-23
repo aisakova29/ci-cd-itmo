@@ -41,6 +41,7 @@ pipeline{
                         steps {
                                 sh 'ansible all -i hosts -m ping'
                                 sh 'ansible-playbook -i hosts playbook1.yml'
+				ansible-playbook release.yml --extra-vars '{"version":"1.$TAG"}'
                                 sh 'ansible-playbook -i hosts playbook2.yml'
 			}
                  }
