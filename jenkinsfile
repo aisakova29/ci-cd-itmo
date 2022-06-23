@@ -33,7 +33,7 @@ pipeline{
 				chechout scm
 				def default_container_image = docker.build("itmo-web:${env.BUILD_ID}")
 				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-				sh 'docker push aisakova29/itmo-web:1.0.$TAG'
+				sh 'docker push aisakova29/default_container_image
 			}
 		}
 
