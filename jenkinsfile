@@ -4,6 +4,7 @@ pipeline{
 
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+		TAG = "${BUILD NUMBER}"
 	}
 
 	stages {
@@ -29,7 +30,7 @@ pipeline{
                 stage('Build') {
 
 			steps {
-				sh 'docker build -t aisakova29/itmo-web:latest .'
+				sh 'docker build -t aisakova29/itmo-web:1.$TAG .'
 				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 				sh 'docker push aisakova29/itmo-web:latest'
 			}
