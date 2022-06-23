@@ -4,7 +4,6 @@
   vars:
     container_count: 3
     default_container_name: itmo-web
-    default_container_image: aisakova29/itmo-web:latest
 
   tasks:
     - name: Install aptitude
