@@ -12,8 +12,7 @@ pipeline{
             stage('gitclone') {
 
 		        steps {
-				git branch: 'master',
-                                url: 'https://github.com/aisakova29/ci-cd-itmo.git'
+				git "https://github.com/aisakova29/ci-cd-itmo.git'
 			}
 		}
 
