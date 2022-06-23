@@ -40,7 +40,7 @@ pipeline{
                 stage('ansible') {
                         steps {
                                 sh 'ansible all -i hosts -m ping'
-                                sh 'ansible-playbook -i hosts playbook1.yml --extra-vars '{"default_container_image":"1.$TAG"}'
+                                sh 'ansible-playbook -i hosts playbook1.yml --extra-vars '{"default_container_image":"aisakova29/itmo-web:1.$TAG"}'
                                 sh 'ansible-playbook -i hosts playbook2.yml'
 			}
                  }
