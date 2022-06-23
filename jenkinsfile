@@ -31,7 +31,7 @@ pipeline{
                 stage('Build') {
 
 			steps {
-				sh 'docker build -t itmo-web:$VERSION .'
+				sh 'docker build -t itmo-web:2.0.$VERSION .'
                                 sh 'docker tag itmo-web:$VERSION aisakova29/itmo-web:2.0.$VERSION'
 				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 				sh 'docker push aisakova29/itmo-web:$VERSION'
