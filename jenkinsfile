@@ -4,7 +4,7 @@ pipeline{
 
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
-		TAG = 'BUILD NUMBER'
+		TAG = '${BUILD NUMBER}'
 	}
 
 	stages {
@@ -26,11 +26,12 @@ pipeline{
             }
         }
 
+
                 stage('Build') {
 
 			steps {
-				sh 'docker build -t itmo-web:1.0.$TAG .'
-				sh 'docker tag itmo-web:1.0.$TAG aisakova29/itmo-web:1.0.$TAG'
+				chechout scm
+				def default_container_image = docker.build(aisakova29/itmo-web:${env.BUILD_ID})
 				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 				sh 'docker push aisakova29/itmo-web:1.0.$TAG'
 			}
