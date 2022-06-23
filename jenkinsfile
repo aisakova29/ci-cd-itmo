@@ -31,7 +31,8 @@ pipeline{
                 stage('Build') {
 
 			steps {
-				sh 'docker build -t aisakova29/itmo-web .'
+				sh 'docker build -t itmo-web:$VERSION .'
+                                sh 'docker tag itmo-web:$VERSION aisakova29/itmo-web:$VERSION'
 				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 				sh 'docker push aisakova29/itmo-web:$VERSION'
 			}
@@ -41,7 +42,7 @@ pipeline{
                 stage('ansible') {
                         steps {
                                 sh 'ansible all -i hosts -m ping'
-                                sh 'ansible-playbook -i hosts playbook1.yml --extra-vars "default_container_image=aisakova29/itmo-web:latest"'
+                                sh 'ansible-playbook -i hosts playbook1.yml --extra-vars "default_container_image=aisakova29/itmo-web:$VERSION"'
                                 sh 'ansible-playbook -i hosts playbook2.yml'
 			}
                  }
